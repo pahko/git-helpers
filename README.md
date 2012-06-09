@@ -9,7 +9,7 @@ A fork of codenga-helpers
     cd git-helpers
     git_helpers_path=$(pwd)
     cat >> ~/.bashrc <<EOF
-    # Codenga-helpers
+    # Git Helpers
     source ${git_helpers_path}/git-helpers
     EOF
     
