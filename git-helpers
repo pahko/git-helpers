@@ -54,7 +54,7 @@ git_branch_p() {
 
 # pull changes to current branch
 pull() {
-    git push origin $(git_branch)
+    git pull origin $(git_branch)
 }
 
 # Only push only current branch
