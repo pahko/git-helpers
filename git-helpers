@@ -15,6 +15,7 @@ unset -f utags
 unalias add 2> /dev/null
 unalias branches 2> /dev/null
 unalias gpull 2> /dev/null
+unalias gpush 2> /dev/null
 unalias merge 2> /dev/null
 unalias gdiff 2> /dev/null
 unalias st 2> /dev/null
@@ -31,6 +32,7 @@ alias gdiff='git diff'
 alias gpull='git pull'
 alias merge='git merge'
 alias st='git status'
+alias gpush='git push --all origin'
 
 
 # Get current branch name or commit
@@ -54,11 +56,10 @@ git_branch_p() {
 push() {
     git push -u origin $(git_branch)
 }
-# pull changes to current branch
-pull() {
-    git pull origin $(git_branch)
+# push all branches
+gpush() {
+    gt push --all origin
 }
-
 # Intelligent wrapper around git checkout.
 #
 # With this, you don't need to worry about whether you've checked
