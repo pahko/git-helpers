@@ -52,6 +52,11 @@ git_branch_p() {
     fi
 }
 
+# pull changes to current branch
+pull() {
+    git push origin $(git_branch)
+}
+
 # Only push only current branch
 push() {
     git push -u origin $(git_branch)
