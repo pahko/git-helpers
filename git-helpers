@@ -33,6 +33,7 @@ alias branches='git branch -a | sed -Ee "s:^\*? *::" | sed -Ee "s:^(remotes/)?or
 alias gcommit='git commit -m'
 alias gdiff='git diff'
 alias gpull='git pull'
+alias grm='git rm $@ && git status'
 alias gundo='git reset --soft HEAD^ && git status'
 alias merge='git merge'
 alias st='git status'
@@ -47,6 +48,7 @@ add() {
     fi
     git add $what && git status
 }
+
 greset() {
     what="$@"
     if [[ -z $what ]]; then
