@@ -33,7 +33,7 @@ alias branches='git branch -a | sed -Ee "s:^\*? *::" | sed -Ee "s:^(remotes/)?or
 alias gcommit='git commit -m'
 alias gdiff='git diff'
 alias gpull='git pull'
-alias gundo='git reset --soft HEAD^'
+alias gundo='git reset --soft HEAD^ && git status'
 alias merge='git merge'
 alias st='git status'
 alias gpush='git push --all origin'
@@ -45,14 +45,14 @@ add() {
     if [[ -z $what ]]; then
         what='.'
     fi
-    git add $what
+    git add $what && git status
 }
 greset() {
     what="$@"
     if [[ -z $what ]]; then
         what='.'
     fi
-    git reset HEAD $what
+    git reset HEAD $what && git status
 }
 
 # Get current branch name or commit
