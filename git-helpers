@@ -8,16 +8,19 @@ unset -f get_repo_user
 unset -f git_branch
 unset -f git_branch_p
 unset -f issue_number
-unset -f pull
 unset -f pull_request
-unset -f push
 unset -f utags
-unalias add 2> /dev/null
+unset -f add
+unset -f greset
 unalias branches 2> /dev/null
+unalias gcommit 2> /dev/null
+unalias gdiff 2> /dev/null
 unalias gpull 2> /dev/null
 unalias gpush 2> /dev/null
+unalias gundo 2> /dev/null
 unalias merge 2> /dev/null
-unalias gdiff 2> /dev/null
+unalias pull 2> /dev/null
+unalias push 2> /dev/null
 unalias st 2> /dev/null
 
 USE_CTAGS="true"
@@ -27,13 +30,32 @@ TAB_COMPLETE_REMOTE_BRANCHES="true"
 alias branches='git branch -a | sed -Ee "s:^\*? *::" | sed -Ee "s:^(remotes/)?origin/::g" | grep -v "HEAD -> origin/master" | sort | uniq'
 
 # some cool shortcuts
-alias add='git add'
+alias gcommit='git commit -m'
 alias gdiff='git diff'
 alias gpull='git pull'
+alias grm='git rm $@ && git status'
+alias gundo='git reset --soft HEAD^ && git status'
 alias merge='git merge'
 alias st='git status'
 alias gpush='git push --all origin'
+alias pull='git pull origin $(git_branch)'  # pull changes to current branch
+alias push='git push -u origin $(git_branch)'  # push only current branch
 
+add() {
+    what="$@"
+    if [[ -z $what ]]; then
+        what='.'
+    fi
+    git add $what && git status
+}
+
+greset() {
+    what="$@"
+    if [[ -z $what ]]; then
+        what='.'
+    fi
+    git reset HEAD $what && git status
+}
 
 # Get current branch name or commit
 git_branch() {
@@ -50,16 +72,6 @@ git_branch_p() {
     if [[ -n $branch ]]; then
         printf " $branch"
     fi
-}
-
-# pull changes to current branch
-pull() {
-    git pull origin $(git_branch)
-}
-
-# Only push only current branch
-push() {
-    git push -u origin $(git_branch)
 }
 # Intelligent wrapper around git checkout.
 #
