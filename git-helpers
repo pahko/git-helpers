@@ -4,6 +4,7 @@
 unset -f _git_branches_both
 unset -f checkout
 unset -f cm
+unset -f cmch
 unset -f get_repo_user
 unset -f git_branch
 unset -f git_branch_p
@@ -224,4 +225,11 @@ cm() {
     message="$@"
     issue_number=`issue_number`
     git commit -m "Issue # $issue_number - $message"
+}
+
+#  commit casahop
+cmch() {
+    message="$@"
+    issue_number=`issue_number`
+    git commit -m "$message refs #$issue_number"
 }
