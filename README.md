@@ -76,3 +76,7 @@ Pulls changes only for the current branch
 ### push
 
 Pushes only the current branch
+
+### branches
+
+List all branches, local and remote.
