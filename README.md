@@ -10,9 +10,10 @@ A fork of codenga-helpers
     git_helpers_path=$(pwd)
     cat >> ~/.bashrc <<EOF
     # Git Helpers
+    export USER_INITIALS="<your initials>"
     source ${git_helpers_path}/git-helpers
     EOF
-    
+
 add this to your `.bashrc` at the end of file to enable branch name on prompt
 
     PS1='\[\e[1;32m\][\u@\h\w\[\e[1;34m\]$(git_branch_p)\[\e[0m\]\[\e[1;32m\]]\[\e[0m\]\n\[\e[1;36m\]\$\[\e[0m\] '
@@ -64,6 +65,14 @@ A shortcut to undo the latest commit and show the resulting status after undoing
 ### merge
 
 A shortcut for `git merge`.
+
+### newbranch
+
+Creates and checks out to a new branch with the format specified for the project.
+
+    $ newbranch <story number> <dash-separated description>
+    Example:
+    $ newbranch 100 short-description-here
 
 ### st
 
