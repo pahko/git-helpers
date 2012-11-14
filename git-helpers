@@ -241,7 +241,7 @@ cm() {
 }
 
 #  commit casahop
-commit() {
+cmch() {
     message="$@"
     issue_number=`issue_number`
     git commit -m "$message, refs #$issue_number"
