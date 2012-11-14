@@ -13,6 +13,7 @@ unset -f pull_request
 unset -f utags
 unset -f add
 unset -f greset
+unset -f newbranch
 unalias branches 2> /dev/null
 unalias gcommit 2> /dev/null
 unalias gdiff 2> /dev/null
@@ -240,8 +241,25 @@ cm() {
 }
 
 #  commit casahop
-cmch() {
+commit() {
     message="$@"
     issue_number=`issue_number`
-    git commit -m "$message refs #$issue_number"
+    git commit -m "$message, refs #$issue_number"
 }
+newbranch () {
+    current_date=$(date +"%m%d")
+    initials=$INITIALS
+    issue_num="$1"
+    if ! [[ "$issue_num" =~ ^[0-9]+$ ]] ; then
+        echo "ERROR: $issue_num is not a valid issue number."
+        return
+    fi
+    description="$2"
+    if [[ -z $description ]]; then
+        echo "ERROR: You need to provide a description"
+        return
+    fi
+
+    new_branch_name="$current_date-$USER_INITIALS-$issue_num-$description"
+    git checkout -b $new_branch_name
+ }
