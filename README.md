@@ -70,9 +70,9 @@ A shortcut for `git merge`.
 
 Creates and checks out to a new branch with the format specified for the project.
 
-    $ newbranch <story number> <dash-separated description>
+    $ newbranch <story number> <INITIALS> <dash-separated description>
     Example:
-    $ newbranch 100 short-description-here
+    $ newbranch 100 FA short-description-here
 
 ### st
 
