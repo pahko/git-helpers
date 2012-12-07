@@ -240,12 +240,6 @@ cm() {
     git commit -m "Issue # $issue_number - $message"
 }
 
-#  commit casahop
-cmch() {
-    message="$@"
-    issue_number=`issue_number`
-    git commit -m "$message, refs #$issue_number"
-}
 newbranch () {
     current_date=$(date +"%m%d")
     initials=$INITIALS
