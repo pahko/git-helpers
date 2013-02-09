@@ -1,7 +1,7 @@
 git-helpers
 ===========
 
-A fork of codenga-helpers
+A set of git shortcuts and helpers to daily development.
 
 # Installing it
 
