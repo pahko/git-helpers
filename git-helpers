@@ -21,9 +21,11 @@ unalias gpull 2> /dev/null
 unalias gpush 2> /dev/null
 unalias gundo 2> /dev/null
 unalias merge 2> /dev/null
+unalias ours 2> /dev/null
 unalias pull 2> /dev/null
 unalias push 2> /dev/null
 unalias st 2> /dev/null
+unalias theirs 2> /dev/null
 
 USE_CTAGS="true"
 TAB_COMPLETE_REMOTE_BRANCHES="true"
@@ -35,13 +37,15 @@ alias branches='git branch -a | sed -Ee "s:^\*? *::" | sed -Ee "s:^(remotes/)?or
 alias gcommit='git commit -m'
 alias gdiff='git diff'
 alias gpull='git pull'
+alias gpush='git push $@ --all origin'
 alias grm='git rm $@ && git status'
 alias gundo='git reset --soft HEAD^ && git status'
 alias merge='git merge'
+alias ours='git checkout --ours'
+alias pull='git pull $@ origin $(git_branch)'  # pull changes to current branch
+alias push='git push -u $@ origin $(git_branch)'  # push only current branch
 alias st='git status'
-alias gpush='git push --all origin'
-alias pull='git pull origin $(git_branch)'  # pull changes to current branch
-alias push='git push -u origin $(git_branch)'  # push only current branch
+alias theirs='git checkout --theirs'
 
 add() {
     what="$@"
