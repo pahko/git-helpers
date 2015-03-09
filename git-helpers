@@ -245,10 +245,9 @@ cm() {
 }
 
 newbranch () {
-    current_date=$(date +"%m%d")
     initials=$INITIALS
     issue_num="$1"
-    if ! [[ "$issue_num" =~ ^[0-9]+$ ]] ; then
+    if ! [[ "$issue_num" =~ ^.+\-[0-9]+$ ]] ; then
         echo "ERROR: $issue_num is not a valid issue number."
         return
     fi
@@ -258,6 +257,6 @@ newbranch () {
         return
     fi
 
-    new_branch_name="$current_date-$USER_INITIALS-$issue_num-$description"
+    new_branch_name="$USER_INITIALS-$issue_num-$description"
     git checkout -b $new_branch_name
  }
