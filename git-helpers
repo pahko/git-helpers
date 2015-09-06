@@ -245,7 +245,6 @@ cm() {
 }
 
 newbranch () {
-    initials=$INITIALS
     issue_num="$1"
     if ! [[ "$issue_num" =~ ^.+\-[0-9]+$ ]] ; then
         echo "ERROR: $issue_num is not a valid issue number."
@@ -257,6 +256,6 @@ newbranch () {
         return
     fi
 
-    new_branch_name="$USER_INITIALS-$issue_num-$description"
+    new_branch_name="$issue_num-$description"
     git checkout -b $new_branch_name
  }

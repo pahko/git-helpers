@@ -10,7 +10,6 @@ A set of git shortcuts and helpers to daily development.
     git_helpers_path=$(pwd)
     cat >> ~/.bashrc <<EOF
     # Git Helpers
-    export USER_INITIALS="<your initials>"
     source ${git_helpers_path}/git-helpers
     EOF
 
