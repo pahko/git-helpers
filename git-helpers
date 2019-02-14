@@ -223,7 +223,7 @@ white(){
 
 issue_number() {
     branch='git_branch'
-    issue=`$branch | cut -d"/" -f2 | cut -d"-" -f1`
+    issue=`$branch | cut -d"-" -f2`
     echo $issue
 }
 
