@@ -1,19 +1,19 @@
 #!/bin/sh
 
 # Clean up
-unset -f _git_branches_both
-unset -f checkout
-unset -f cm
-unset -f cmch
-unset -f get_repo_user
-unset -f git_branch
-unset -f git_branch_p
-unset -f issue_number
-unset -f pull_request
-unset -f utags
-unset -f add
-unset -f greset
-unset -f newbranch
+unset -f _git_branches_both 2> /dev/null
+unset -f checkout 2> /dev/null
+unset -f cm 2> /dev/null
+unset -f cmch 2> /dev/null
+unset -f get_repo_user 2> /dev/null
+unset -f git_branch 2> /dev/null
+unset -f git_branch_p 2> /dev/null
+unset -f issue_number 2> /dev/null
+unset -f pull_request 2> /dev/null
+unset -f utags 2> /dev/null
+unset -f add 2> /dev/null
+unset -f greset 2> /dev/null
+unset -f newbranch 2> /dev/null
 unalias branches 2> /dev/null
 unalias gcommit 2> /dev/null
 unalias gdiff 2> /dev/null
